@@ -39,6 +39,13 @@ The designs were created to the following widths:
 
  */
 
+.body {
+    text-align: center;
+}
+
+p, .perks {
+    font-size: 15px;
+}
 
 
 .attribution { font-size: 11px; text-align: center; }
