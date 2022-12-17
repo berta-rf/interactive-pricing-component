@@ -12,27 +12,32 @@
 </head>
 <body>
   
-  <main class="container">
-    <section class="row">
-      <div class="col col-lg-4">
+  <main class="container text-center">
+    
+    <section class="top-text row justify-content-center my-5">
+      <div class="col col-md-8 col-lg-6">
         <h1>Simple, traffic-based pricing</h1>
-        <p>Sign-up for our 30-day trial.</p>
-        <p>  No credit card required. </p>
+        <p>Sign-up for our 30-day trial.<br>
+          No credit card required.</p>
       </div>
     </section>
     
-    <section class="row">
-      <div class="card col col-lg-4" style="width: 18rem;">
+    <section class="row justify-content-center my-5">
+      <div class="card p-3 col-10 col-md-8 col-lg-6">
         <div class="card-body">
-          <h2 class="card-title">PAGEVIEWS</h2>
+          <p><span id="views"></span> PAGEVIEWS</p>
+          <div class="slidecontainer my-5">
+            <input id="rangeslider" type="range" min="1" max="5" value="3" class="slider">
+          </div>
+          <p><span id="dollars"></span> /month</p>
+
           <ul class="list-group list-group-flush">
             <li class="list-group-item">
-              <h2>$ /month</h2>
-              <p>Monthly Billing</p>
-              <p>Yearly Billing 25% discount</p>
+              <p>Monthly Billing Yearly Billing -25%</p>
             </li>
+            
             <li class="list-group-item">
-              <ul class="perks">
+              <ul class="perks mt-4">
                 <li>Unlimited websites</li>
                 <li>100% data ownership</li>
                 <li>Email reports</li>
@@ -44,7 +49,7 @@
           <button type="button" class="btn btn-lg btn-secondary">Start my trial</button>
         </div>
       </div>
-  
+      
     </section>
   </main>
   
