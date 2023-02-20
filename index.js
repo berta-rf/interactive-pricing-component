@@ -14,30 +14,44 @@ const USDollar = Intl.NumberFormat('en-US', {
 const slider = document.getElementById("rangeslider");
 const views = document.getElementById("views");
 const dollars = document.getElementById("dollars");
+const billingToggle = document.querySelector('#flexSwitchCheckDefault');
 
-let defaultPlan = views.innerHTML = "100K"; dollars.innerHTML = USDollar.format(16);
+const monthlyRates = [8, 12, 16, 24, 36];
+const monthlyRates25 = monthlyRates.map((i) => i - i * 0.25);
 
-slider.oninput = function() {
 
-    if (this.value == 1) {
-        views.innerHTML = "10K";
-        dollars.innerHTML = USDollar.format(8);
+let defaultPlan = views.innerText = "100K"; 
+dollars.innerText = USDollar.format(monthlyRates[2]);
 
-    } else if (this.value == 2) {
-        views.innerHTML = "50K";
-        dollars.innerHTML = USDollar.format(12);
 
-    } else if (this.value == 3) {
-        views.innerHTML = "100K";
-        dollars.innerHTML = USDollar.format(16);
+slider.addEventListener('change', priceSlider);
+billingToggle.addEventListener('change', priceSlider);
 
-    } else if (this.value == 4) {
-        views.innerHTML = "500K";
-        dollars.innerHTML = USDollar.format(24);
 
-    } else if (this.value == 5) {
-        views.innerHTML = "1M";
-        dollars.innerHTML = USDollar.format(36);
+// When the slider moves, price/month and pageviews change
+function priceSlider() {
+    const rates = billingToggle.checked ? monthlyRates25 : monthlyRates;
+    const value = slider.value;
 
+    if (value == 1) {
+        views.innerText = "10K";
+        dollars.innerText = USDollar.format(rates[0]);
+
+    } else if (value == 2) {
+        views.innerText = "50K";
+        dollars.innerText = USDollar.format(rates[1]);
+
+    } else if (value == 3) {
+        views.innerText = "100K";
+        dollars.innerText = USDollar.format(rates[2]);
+
+    } else if (value == 4) {
+        views.innerText = "500K";
+        dollars.innerText = USDollar.format(rates[3]);
+
+    } else if (value == 5) {
+        views.innerText = "1M";
+        dollars.innerText = USDollar.format(rates[4]);
     }
 }
+
